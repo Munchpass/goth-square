@@ -2,8 +2,6 @@ module github.com/munchpass/gothsquare
 
 go 1.19
 
-replace github.com/munchpass/gothsquare => ./
-
 require (
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/markbates/goth v1.77.0
