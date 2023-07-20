@@ -1,6 +1,6 @@
 // Package square implements the OAuth protocol for authenticating users through square.
 // This package can be used as a reference implementation of an OAuth provider for Goth.
-package main
+package gothsquare
 
 import (
 	"context"
