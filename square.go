@@ -17,8 +17,63 @@ const (
 	// endpointProfile string = "https://connect.squareup.com/v2/merchants" // '-' for logged in user
 )
 
+// Relevant scopes. This is not a comprehensive list, but is fairly complete for Munch Insight's usecases.
+// See https://developer.squareup.com/docs/oauth-api/square-permissions for a complete list.
 const (
-	ScopeMerchantRead = "MERCHANT_PROFILE_READ"
+	// Catalog scopes
+	ScopeItemsRead  = "ITEMS_READ"
+	ScopeItemsWrite = "ITEMS_WRITE"
+
+	// Order, Payments & Checkout scopes
+	ScopeOrdersWrite   = "ORDERS_WRITE"
+	ScopeOrdersRead    = "ORDERS_READ"
+	ScopePaymentsRead  = "PAYMENTS_READ"
+	ScopePaymentsWrite = "PAYMENTS_WRITE"
+
+	// Customer scopes
+	ScopeCustomerRead   = "CUSTOMERS_READ"
+	ScopeCustomersWrite = "CUSTOMERS_WRITE"
+
+	// Employee scopes
+	ScopeEmployeeRead = "EMPLOYEES_READ"
+
+	// Gift Card scopes
+	ScopeGiftCardsRead  = "GIFTCARDS_READ"
+	ScopeGiftCardsWrite = "GIFTCARDS_WRITE"
+
+	// Inventory scopes
+	ScopeInventoryRead  = "INVENTORY_READ"
+	ScopeInventoryWrite = "INVENTORY_WRITE"
+
+	// Invoice scopes
+	ScopeInvoiceRead  = "INVOICES_READ"
+	ScopeInvoiceWrite = "INVOICES_WRITE"
+
+	// Labor (Timecard) scopes
+	ScopeTimecardsRead  = "TIMECARDS_READ"
+	ScopeTimecardsWrite = "TIMECARDS_WRITE"
+
+	// Merchant & Locations scopes
+	ScopeMerchantRead  = "MERCHANT_PROFILE_READ"
+	ScopeMerchantWrite = "MERCHANT_PROFILE_WRITE"
+
+	// Loyalty scopes
+	ScopeLoyaltyRead  = "LOYALTY_READ"
+	ScopeLoyaltyWrite = "LOYALTY_WRITE"
+
+	// Payout scopes
+	ScopePayoutsRead = "PAYOUTS_READ"
+
+	// Online sites scopes
+	ScopeOnlineStoreSitesRead = "ONLINE_STORE_SITE_READ"
+
+	// Subscriptions
+	ScopeSubscriptionsRead  = "SUBSCRIPTIONS_READ"
+	ScopeSubscriptionsWrite = "SUBSCRIPTIONS_WRITE"
+
+	// Vendors
+	ScopeVendorRead  = "VENDOR_READ"
+	ScopeVendorWrite = "VENDOR_WRITE"
 )
 
 // New creates a new square provider, and sets up important connection details.
