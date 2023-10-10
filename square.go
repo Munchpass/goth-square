@@ -11,10 +11,22 @@ import (
 	"golang.org/x/oauth2"
 )
 
+type SquareGlobalConfig struct {
+	IsProd bool
+}
+
+var globalConfig = &SquareGlobalConfig{IsProd: true}
+
+func SetIsProd(isProd bool) {
+	globalConfig.IsProd = isProd
+}
+
 const (
-	authURL  string = "https://connect.squareupsandbox.com/oauth2/authorize"
-	tokenURL string = "https://connect.squareupsandbox.com/oauth2/token"
+	sandboxAuthURL  string = "https://connect.squareupsandbox.com/oauth2/authorize"
+	sandboxTokenURL string = "https://connect.squareupsandbox.com/oauth2/token"
 	// endpointProfile string = "https://connect.squareup.com/v2/merchants" // '-' for logged in user
+	productionAuthURL  string = "https://connect.square.com/oauth2/authorize"
+	productionTokenURL string = "https://connect.square.com/oauth2/token"
 )
 
 // Relevant scopes. This is not a comprehensive list, but is fairly complete for Munch Insight's usecases.
@@ -146,6 +158,13 @@ func (p *Provider) FetchUser(session goth.Session) (goth.User, error) {
 }
 
 func newConfig(provider *Provider, scopes []string) *oauth2.Config {
+	authURL := productionAuthURL
+	tokenURL := productionTokenURL
+	if !globalConfig.IsProd {
+		authURL = sandboxAuthURL
+		tokenURL = sandboxTokenURL
+	}
+
 	c := &oauth2.Config{
 		ClientID:     provider.ClientKey,
 		ClientSecret: provider.Secret,
@@ -154,9 +173,7 @@ func newConfig(provider *Provider, scopes []string) *oauth2.Config {
 			AuthURL:  authURL,
 			TokenURL: tokenURL,
 		},
-		Scopes: []string{
-			ScopeMerchantRead,
-		},
+		Scopes: scopes,
 	}
 
 	defaultScopes := map[string]struct{}{
