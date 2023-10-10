@@ -25,8 +25,8 @@ const (
 	sandboxAuthURL  string = "https://connect.squareupsandbox.com/oauth2/authorize"
 	sandboxTokenURL string = "https://connect.squareupsandbox.com/oauth2/token"
 	// endpointProfile string = "https://connect.squareup.com/v2/merchants" // '-' for logged in user
-	productionAuthURL  string = "https://connect.square.com/oauth2/authorize"
-	productionTokenURL string = "https://connect.square.com/oauth2/token"
+	productionAuthURL  string = "https://connect.squareup.com/oauth2/authorize"
+	productionTokenURL string = "https://connect.squareup.com/oauth2/token"
 )
 
 // Relevant scopes. This is not a comprehensive list, but is fairly complete for Munch Insight's usecases.
